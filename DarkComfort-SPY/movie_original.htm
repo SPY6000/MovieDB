@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- Dark Comfort for EMDB by R3gi, Czech Republic, 2018.12.16 -->
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="../style.css" rel="stylesheet" type="text/css"/>
+		<title>#NUMBER# - #PAGE_TITLE#</title>
+		<noscript>
+			<style>
+				.lazy {
+					display: none;
+				}
+			</style>
+		</noscript>
+	</head>
+	<body id="body" onload="manageResults('movie')" onpagehide="updateNavPage('movie')">
+		<header id="header">
+			<div class="inner">
+				<div class="title_box">
+					<span class="title">#CURRENT_MOVIE# #VERSION# #YEAR#</span>
+				</div>
+			</div>
+			<nav class="navigation menu"> 
+				<div class="in">
+					<a href="../index.htm">#ROOT_TRANSLATION#</a>
+					#ALL_MOVIES_LINK_START#<a href="../index.htm#all-movies"> &gt;&nbsp;#MOVIES_ALL#</a>#ALL_MOVIES_LINK_END#
+					<a href="#LINK_CURRENT_LETTER#"> &gt;&nbsp;#CURRENT_LETTER#</a>
+					<a href="#LINK_CURRENT_MOVIE#"> &gt;&nbsp;#CURRENT_MOVIE#</a>
+					<div class="quick_nav"> 
+						<a href="./#PREVIOUS_MOVIE#.htm">#PREVIOUS_MOVIE_TRANSLATION#</a>&nbsp;<a href="./#NEXT_MOVIE#.htm">#NEXT_MOVIE_TRANSLATION#</a>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main id="wrap">
+			<div class="content_box">
+				<div class="content_cover">
+					<noscript><img class="cover notlazy" src="#COVER#" alt="Cover"/></noscript>
+					<img class="cover lazy" src="#COVER#" alt="Cover"/>
+					<div class="rel_links">#IMDB_LINK#&nbsp;&nbsp;#TRAILER_LINK#</div>
+				</div>
+				<div class="content">
+					#IMDB_RATING_BEGIN#
+						<p><b>#IMDB_RATING_TRANSLATION#</b><br>
+						#IMDB_RATING_STARS#
+						#IMDB_RATING_TEXT#
+						</p>
+					#IMDB_RATING_END#
+					#USER_RATING_BEGIN#
+						<p><b>#USER_RATING_TRANSLATION#</b><br>
+						#USER_RATING_STARS#
+						#USER_RATING_TEXT#
+						</p>
+					#USER_RATING_END#
+					#AKA_BEGIN#<p><b>#AKA_TRANSLATION#:</b> #ALTERNATIVE_TITLE#</p>#AKA_END#
+					<p><b>#DIRECTOR_TRANSLATION#</b> #DIRECTOR#</p>
+					<p><b>#COUNTRY_TRANSLATION#</b> #COUNTRY# &nbsp;&nbsp;<b>#STUDIO_TRANSLATION#:</b> #STUDIO#</p>
+					<p><b>#DURATION_TRANSLATION#:</b> #DURATION#</p>
+					<p><b>#GENRES_TRANSLATION#</b> #GENRES#</p>
+					<p><b>#SPOKEN_LANGUAGES_TRANSLATION#</b> #SPOKEN_LANGUAGES# &nbsp;&nbsp;</p><p><b>#AUDIO_STREAMS_TRANSLATION#:</b> #AUDIO_STREAMS#</p>
+					#SUBTITLES_BEGIN#<p><b>#SUBTITLES_TRANSLATION#:</b> #SUBTITLES#</p>#SUBTITLES_END#
+					<p><b>#PLOT_OUTLINE_TRANSLATION#</b> #PLOTOUTLINE#</p>
+					<p><b>#CUSTOM_FIELD1_TRANSLATION#</b> #CUSTOM_FIELD1#</p>
+					#COMMENTS_BEGIN#<p><b>#COMMENTS_TRANSLATION#</b> #COMMENTS#</p>#COMMENTS_END#
+					<p><b>#MEDIUM_TRANSLATION#</b> #MEDIUM# &nbsp;&nbsp;<b>#LOANED_TRANSLATION#</b> #LOANED#</p>
+					<p><b>#NUMBER_TRANSLATION#</b> #NUMBER# &nbsp;&nbsp;#LOCATION_BEGIN#<b>#LOCATION_TRANSLATION#</b> #LOCATION#</p>#LOCATION_END#
+					<div class="actors-container">
+						<p><b>#CAST_TRANSLATION#</b><br>
+							<div class="actors">
+								#ACTOR_TEMPLATE_START#
+								<a class="actor-container" href="#ACTOR_LINK#" target="_blank">
+									<div class="actor-image-container">
+										<noscript><img class="actor-image notlazy" src="#ACTOR_PHOTO#" alt="Actor photo"/></noscript>
+										<img class="actor-image lazy" data-src="#ACTOR_PHOTO#" alt="Actor photo"/>
+									</div>
+									<div class="actor-name">#ACTOR_NAME#</div>
+									<div class="character-name">#ACTOR_CHARACTER#</div>
+								</a>
+								#ACTOR_TEMPLATE_END#
+							</div>
+						</p>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer id="footer">
+			<div class="inner">
+				<nav id="tb">
+					<a class="to_top" href="#header">&#708;</a>
+					<a class="to_bottom" href="#footer">&#709;</a>
+				</nav>
+				<div>#COPYRIGHT_TRANSLATION#</div>
+				<div>Dark&nbsp;Comfort for EMDB by&nbsp;<a href="mailto:regiprogi@gmail.com">R3gi</a></div>
+				<div id="link_db"><a href="http://www.emdb.eu" target="_blank">EMDB</a></div>
+				<div id="settings">
+					<input id="s_sticky_menu" onclick="settings('','s')" type="checkbox" checked title="If enabled, navigation menu will be sticked"><label for="s_sticky_menu">Sticky menu</label>
+				</div>
+			</div>
+			<script src="../gif/lazy_load.js"></script>
+			<script>
+				// LazyLoad
+				var myLazyLoad = new LazyLoad({
+					elements_selector: ".lazy",
+					load_delay: 200
+				});
+			</script>
+			<script src="../gif/jquery-3.3.1.min.js" defer></script>
+			<script src="../gif/jets.min.js"></script>
+			<script src="../gif/main.js" defer></script>
+			<script src="../gif/sticky_menu.js" defer></script>
+		</footer>
+	</body>
+</html>

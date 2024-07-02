@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- Dark Comfort for EMDB by R3gi, Czech Republic, 2018.12.16 -->
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="style.css" rel="stylesheet" type="text/css"/>
+		<title>#EMDB_SHORT#</title>
+		<noscript>
+			<style>
+				#search_form,
+				#settings,
+				.lazy {
+					display: none;
+				}
+			</style>
+		</noscript>
+	</head>
+	<body id="body" onload="manageResults('index')" onpagehide="updateNavPage('index')">
+		<header id="header">
+			<div class="inner">
+				<div class="title_box">
+					<span class="title">#EMDB_LONG#</span>
+				</div>
+			</div>
+			<div class="minor">
+				<span id="db_info">#LAST_UPDATED_TRANSLATION#&nbsp;#DATE# |&nbsp;#NUMBER_OF_MOVIES_TRANSLATION#&nbsp;#TOTAL#</span>
+			</div>
+			<nav class="navigation menu main">
+				<div class="in">
+					<span class="nav search_hide_fr">
+						#LATEST_ADDITIONS_LINK_START#<a href="#latest-additions">#LATEST_ADDITIONS_TRANSLATION#</a>#LATEST_ADDITIONS_LINK_END#
+						#ALL_MOVIES_LINK_START#<a href="#all-movies">#ALL_MOVIES_TRANSLATION#</a>#ALL_MOVIES_LINK_END#
+						#MENU_LETTER_TEMPLATE_BEGIN#<a href="#movies-#LETTER_LOWERCASE#">#LETTER_UPPERCASE#</a>#MENU_LETTER_TEMPLATE_END#
+						#MENU_0_BEGIN#<a href="#movies-09">0..9</a>#MENU_0_END#
+						#MENU_@_BEGIN#<a href="#movies-other">#OTHER_TRANSLATION#</a>#MENU_@_END#
+						#MENU_3D_BEGIN#<a href="#movies-3d">#3D_TRANSLATION#</a>#MENU_3D_END#
+					</span>
+					<button class="search_reset search_show_ib" onclick="reset()" type="reset">&lt;&nbsp;Back</button>
+					<form id="search_form" role="search" action="javascript:jets.search()">
+						<input id="searchInput" class="search" type="search" placeholder="Search&#8230;" aria-label="Search movies" autofocus><button class="search" type="submit">&#128270;</button>
+					</form>
+				</div>
+			</nav>
+		</header>
+		<main id="wrap">
+			<!-- Template definitions -->
+			#YEAR_TEMPLATE_START#&nbsp;(#YEAR#)#YEAR_TEMPLATE_END#
+			
+			#THUMBNAIL_TEMPLATE_START#
+			<li class="thumbnail">
+				<a href="#RELATIVE_PATH#movies/#INDEX#.htm">
+					<noscript><img class="notlazy" src="#COVER#" alt="Cover"/></noscript>
+					<img class="movie-image lazy" data-src="#COVER#" alt="Cover"/>
+				</a>
+				<div class="thumbnail-text">
+					<a href="#RELATIVE_PATH#movies/#INDEX#.htm">#NUMBER##TITLE#</a>
+				</div>
+			</li>
+			#THUMBNAIL_TEMPLATE_END#
+
+			#LIST_TEMPLATE_START#
+				<a class="item" href="#RELATIVE_PATH#movies/#INDEX#.htm">#TITLE#</a>
+			#LIST_TEMPLATE_END#
+
+			#NUMBERED_LIST_TEMPLATE_START#
+				<a class="item number" href="#RELATIVE_PATH#movies/#INDEX#.htm">#NUMBER#.&nbsp;&nbsp;#TITLE#</a>
+			#NUMBERED_LIST_TEMPLATE_END#
+			
+			<!-- Navigation template -->	
+			#GENRES_BEGIN#
+				<a class="anchor" id="genres"></a>
+				<div class="navigation genres search_hide_b">#GENRES#</div>
+			#GENRES_END#
+			
+			 #YEARS_BEGIN#
+				<a class="anchor" id="years"></a>
+				<div class="navigation years search_hide_b">#YEARS#</div>
+			#YEARS_END#
+
+			<!-- Movie list starts here -->
+			#LATEST_ADDITIONS_START#
+				<div class="category_header">
+					<a class="anchor" id="latest-additions"></a>#LATEST_ADDITIONS_TRANSLATION#
+				</div>
+				<ul class="latest_additions search_hide_b">#LATEST_ADDITIONS#</ul>
+			#LATEST_ADDITIONS_END#
+		
+			#ALL_MOVIES_START# 
+				<div class="category_header">
+					<a class="anchor" id="all-movies"></a>#ALL_MOVIES_TRANSLATION#
+				</div>
+				<ul class="category search_hide_b">#MOVIES_ALL#</ul>
+			#ALL_MOVIES_END#
+			
+			#MOVIES_LETTER_TEMPLATE_BEGIN#
+			#MOVIES_#LETTER_UPPERCASE#_BEGIN#
+			<div class="category_header">
+				<a class="anchor" id="movies-#LETTER_LOWERCASE#"></a>#LETTER_UPPERCASE#
+			</div>
+			<ul class="category searchable"></ul>
+			#MOVIES_#LETTER_UPPERCASE#_END#
+			#MOVIES_LETTER_TEMPLATE_END#
+
+			#MOVIES_0_BEGIN#
+				<div class="category_header">
+					<a class="anchor" id="movies-09"></a>0-9
+				</div>
+				<ul class="category searchable"></ul>
+			#MOVIES_0_END#
+
+			#MOVIES_@_BEGIN#
+				<div class="category_header">
+					<a class="anchor" id="movies-other"></a>#OTHER_TRANSLATION#
+				</div>
+				<ul class="category searchable"></ul>
+			#MOVIES_@_END#
+
+			#MOVIES_3D_BEGIN#
+				<div class="category_header">
+					<a class="anchor" id="movies-3d"></a>#3D_TRANSLATION#
+				</div>
+				<ul class="category searchable"></ul>
+			#MOVIES_3D_END#
+				<div id="no_results" class="results_control">No results found</div>
+				<div id="search_reset" class="results_control search_show_b"><button class="search" onclick="reset()" type="reset">Clear search results</button></div>
+		</main>
+		<footer id="footer">
+			<div class="inner">
+				<nav id="tb">
+					<a class="to_top" href="#header">&#708;</a>
+					<a class="to_bottom" href="#footer">&#709;</a>
+				</nav>
+				<div>#COPYRIGHT_TRANSLATION#</div>
+				<div>Dark&nbsp;Comfort for EMDB by&nbsp;<a href="mailto:regiprogi@gmail.com">R3gi</a></div>
+				<div id="link_db"><a href="http://www.emdb.eu" target="_blank">EMDB</a></div>
+				<div id="settings">
+					<input id="s_remeber_results" onclick="settings('r','')" type="checkbox" checked title="If enabled, search results will be restored when navigating between pages"><label for="s_remeber_results">Remeber search results</label>
+					<input id="s_sticky_menu" onclick="settings('','s')" type="checkbox" checked title="If enabled, navigation menu will be sticked"><label for="s_sticky_menu">Sticky menu</label>
+				</div>
+				#COUNTER#
+			</div>
+			<script src="./gif/lazy_load.js"></script>
+			<script>
+				var myLazyLoad = new LazyLoad({
+					elements_selector: ".lazy",
+					load_delay: 200
+				});
+			</script>
+			<script src="./gif/jquery-3.3.1.min.js" defer></script>
+			<script src="./gif/jets.min.js"></script>
+			<script src="./gif/main.js" defer></script>
+			<script src="./gif/sticky_menu.js" defer></script>
+		</footer>
+	</body>
+</html>
