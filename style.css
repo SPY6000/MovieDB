@@ -541,3 +541,9 @@ html {
 .overflow {
 	overflow: hidden;
 }
+
+.ratings_gap {
+	display: flex;
+	align-items: center;
+	column-gap: 5px;
+}
