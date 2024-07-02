@@ -402,6 +402,8 @@ button.search:focus {
 }
 
 .content_cover {
+	margin-block-start: 1em; /* Added by SPY */
+	margin-block-end: 1em; /* Added by SPY */
 	display: inline-block;
 	float: left;
 	padding: 10px 10px;
@@ -533,4 +535,9 @@ html {
 		float: none;
 		margin: 0;
 	}
+}
+
+/* Added by SPY */
+.overflow {
+	overflow: hidden;
 }
