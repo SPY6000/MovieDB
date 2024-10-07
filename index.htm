@@ -60,7 +60,10 @@
 
 						<a href="#movies-09">0..9</a>
 						<a href="#movies-other">Other</a>
-						
+						&nbsp;<label>
+  <input type="checkbox" id="toggle-seen" />
+  Hide "Seen"
+</label>
 					</span>
 					<button class="search_reset search_show_ib" onclick="reset()" type="reset">&lt;&nbsp;Back</button>
 					<form id="search_form" role="search" action="javascript:jets.search()">
@@ -167,7 +170,10 @@
 <a href="years.htm#1939" class="button button-gray">1939</a>
 </div>
 			
-
+<label>
+  <input type="checkbox" id="toggle-seen" />
+  Hide "Seen" movies
+</label>
 			<!-- Movie list starts here -->
 			
 				<div class="category_header">
@@ -308,7 +314,7 @@
 			<div class="category_header">
 				<a class="anchor" id="movies-a"></a>A
 			</div>
-			<ul class="category searchable"><li class="thumbnail">
+			<ul class="category searchable"><li class="thumbnail seen">
 				<a href="movies/90.htm">
 					<noscript><img class="notlazy" src="covers/000093.jpg" alt="Cover"/></noscript>
 					<img class="movie-image lazy" data-src="covers/000093.jpg" alt="Cover"/>
@@ -9739,6 +9745,18 @@
 				</div>
 				
 			</div>
+			<script>
+  document.getElementById('toggle-seen').addEventListener('change', function() {
+    const seenItems = document.querySelectorAll('.thumbnail.seen');
+    seenItems.forEach(item => {
+      if (this.checked) {
+        item.style.display = 'none'; // Hide the "seen" items
+      } else {
+        item.style.display = ''; // Restore the default display property
+      }
+    });
+  });
+</script>
 			<script src="./gif/lazy_load.js"></script>
 			<script>
 				var myLazyLoad = new LazyLoad({
