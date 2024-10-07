@@ -9744,16 +9744,49 @@
 				
 			</div>
 			<script>
-				document.getElementById('toggle-seen').addEventListener('change', function() {
+				// Function to update visibility based on checkbox status
+				function updateSeenItemsVisibility() {
 					const seenItems = document.querySelectorAll('.thumbnail.seen');
+					const checkbox = document.getElementById('toggle-seen');
 					seenItems.forEach(item => {
-					if (this.checked) {
-						item.style.display = 'none'; // Hide the "seen" items
-					} else {
-						item.style.display = ''; // Restore the default display property
-					}
+						if (checkbox.checked) {
+							item.style.display = 'none'; // Hide the "seen" items
+						} else {
+							item.style.display = ''; // Restore the default display property
+						}
 					});
+				}
+			
+				// Event listener for checkbox change
+				document.getElementById('toggle-seen').addEventListener('change', function() {
+					// Save the checkbox state to session storage
+					sessionStorage.setItem('toggleSeen', this.checked);
+					updateSeenItemsVisibility();
 				});
+			
+				// Function to initialize the checkbox state and visibility
+				function initializeVisibility() {
+					// Get the checkbox state from session storage
+					const checkboxState = sessionStorage.getItem('toggleSeen') === 'true';
+					const checkbox = document.getElementById('toggle-seen');
+			
+					// Set the checkbox checked state
+					checkbox.checked = checkboxState;
+			
+					// Update visibility based on the stored checkbox state
+					updateSeenItemsVisibility();
+				}
+			
+				// Use 'pageshow' event to handle back navigation
+				window.addEventListener('pageshow', function(event) {
+					if (event.persisted || window.performance.navigation.type === 2) {
+						// The page was loaded from the cache (back navigation)
+						initializeVisibility(); // Update visibility based on checkbox state
+					}
+				});
+			
+				// Check checkbox status on normal page load
+				window.addEventListener('load', initializeVisibility);
 			</script>
 			<script src="./gif/lazy_load.js"></script>
 			<script>
