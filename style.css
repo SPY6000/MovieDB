@@ -457,8 +457,9 @@ img.cover, .rel_links a img, img.star {
 	    -ms-flex: 1;
 	        flex: 1;
 	display: inline-block;
-	-ms-flex-preferred-size: 150px;
-	    flex-basis: 150px;
+	-ms-flex-preferred-size: 20%;	/* Modified by SPY. original value: 150px */
+	    flex-basis: 20%;			/* Modified by SPY. original value: 150px */
+	min-width: 150px;				/* Added by SPY */
 	max-width: 200px;
 	min-height: 30px;
 	margin: 5px;
